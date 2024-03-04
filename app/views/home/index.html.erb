@@ -1,0 +1,8 @@
+<h1>Market Value Analysis</h1>
+<% if user_signed_in? %>
+  <div> Welcome <%= current_user.email %> </div>
+  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+  <%= link_to "Prediction", new_input_path(@input)%>
+<% else %>
+  <%= link_to "Sign in", new_user_session_path %>
+<% end %>
