@@ -1,0 +1,47 @@
+<%= form_with(model: @property, local: true, url:property_index_path ) do |form| %>
+
+  <h1> Enter Details</h1>
+<!--  <div class="field">-->
+    <%#= form.label :City, class: 'form-label' %>
+    <%#= form.text_field :City, id: 'post-title', class: "form-control"%>
+<!--  </div>-->
+
+  <div class="field">
+    <%= form.label :bedroom_num, class: 'form-label' %>
+    <%= form.number_field :bedroom_num, id: 'post-title', class: "form-control"%>
+  </div>
+
+  <div class="field">
+    <%= form.label :balcony_num, class: 'form-label' %>
+    <%= form.number_field :balcony_num, id: 'post-title', class: "form-control"%>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :city, class: 'form-label' %>
+    <%= form.text_field :city, id: 'post-title', class: "form-control"%>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_floor, class: 'form-label' %>
+    <%= form.number_field :total_floor, id: 'post-title', class: "form-control"%>
+  </div>
+
+
+  <!--  <fieldset class="rating">-->
+<!--    <%#= form.label :Preference, class: 'form-label' %><br>-->
+    <%#= form.radio_button :Preference, 'Sale' , class: 'form-check-property'%> <%#= form.label("Sale", class: 'form-check-label') %>
+    <%#= form.radio_button :Preference, 'Rent',  class: 'form-check-property'%> <%#= form.label("Rent", class: 'form-check-label') %>
+<!--  </fieldset>-->
+
+<!--  <fieldset class="rating">-->
+<!--    <%#= form.label :Property_type, class: 'form-label' %><br>-->
+    <%#= form.radio_button :Property_type, 'Residential Land' , class: 'form-check-property'%> <%#= form.label("Land", class: 'form-check-label') %>
+    <%#= form.radio_button :Property_type, 'Residential Apartment',  class: 'form-check-property'%> <%#= form.label("Apartment", class: 'form-check-label') %>
+<!--  </fieldset>-->
+
+
+  <div class="actions btn">
+    <%= form.submit "Predict" %>
+  </div>
+<% end %>

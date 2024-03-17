@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_04_121214) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_16_164852) do
   create_table "inputs", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "properties", force: :cascade do |t|
+    t.integer "price"
+    t.integer "balcony_num"
+    t.integer "bedroom_num"
+    t.string "city"
+    t.integer "total_floor"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "property", force: :cascade do |t|
+    t.integer "price"
+    t.integer "balcony_num"
+    t.integer "bedroom_num"
+    t.string "city"
+    t.integer "total_floor"
   end
 
   create_table "users", force: :cascade do |t|
