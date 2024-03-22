@@ -42,8 +42,10 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
-gem 'pycall'
-
+# gemspec
+gem 'pycall', '~> 1.5', '>= 1.5.1'
+# gem 'python-pickle', '~> 1.0'
+gem 'python-pickle', git: 'https://github.com/postmodern/python-pickle.rb', branch: 'main'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 

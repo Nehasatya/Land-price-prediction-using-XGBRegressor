@@ -1,5 +1,8 @@
 class Ml
   def self.estimate_prices(property)
+    print "=>===> In estimate_prices\n"
+    print "=>==> Going to predict\n"
+    print "=>==> estimator - #{estimator}\n"
     predictions =
       estimator.predict(
         property.balcony_num,
@@ -7,7 +10,7 @@ class Ml
         property.city,
         property.total_floor
       )
-
+    print "=>==> After prediction #{predictions}\n"
     property.price = predictions
 
     property

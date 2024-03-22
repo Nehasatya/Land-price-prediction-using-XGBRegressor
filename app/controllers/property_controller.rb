@@ -1,11 +1,9 @@
-# require 'pycall/import'
-# include PyCall::Import
-# pyfrom :'sklearn.model_selection', import: :train_test_split
-# PyCall.import_module("pandas")
-# PyCall.import_module("numpy")
 class PropertyController < ApplicationController
 
   def index
+  end
+
+  def show
   end
 
   def new
@@ -17,7 +15,9 @@ class PropertyController < ApplicationController
     @property = Property.new(property_params)
 
     if @property.valid?
-      Ml.estimate_prices(@property)
+      print "=>==> In create\n"
+      @property = Ml.estimate_prices(@property)
+      print "=>==> Executed estimate price\n"
       @property.save
       redirect_to @property, notice: 'Successfully created'
     else
