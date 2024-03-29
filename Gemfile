@@ -44,10 +44,12 @@ gem "bootsnap", require: false
 
 # gemspec
 gem 'pycall', '~> 1.5', '>= 1.5.1'
+gem 'pandas'
 # gem 'python-pickle', '~> 1.0'
 gem 'python-pickle', git: 'https://github.com/postmodern/python-pickle.rb', branch: 'main'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
+gem 'daru', '~> 0.3'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
