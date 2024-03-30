@@ -14,40 +14,33 @@ class Ml::Estimator
 
   def predict(balcony, bedroom, city, total_floor)
     print "=>==> In predict\n"
-
+    # print "=>==> @pipeline - #{@pipeline}\n"
     data = {
       'BALCONY_NUM' => [balcony],
       'BEDROOM_NUM' => [bedroom],
       'CITY'=> [city],
       'TOTAL_FLOOR'=> [total_floor]
     }
-    # df = Pandas.DataFrame(data)
-    # df_city = Pandas.DataFrame(city)
-    # prepared = @pipeline.fit_transform(Pandas.concat([df, df_city]))
-    # print "=>==> data - #{data}\n"
-    print "=>==> After importing pandas\n"
-    # pd = PyCall.import_module("pandas")
+
     print "=>==> Before\n"
-    # print" pd.DataFrame - #{Pandas.DataFrame}\n"
-    # df = Pandas()
-    df = Pandas::DataFrame
+
     pipeline_input_data =  Daru::DataFrame.new(
       {'BALCONY_NUM' => [balcony],
         'BEDROOM_NUM' => [bedroom],
         'CITY' => [city],
         'TOTAL_FLOOR' => [total_floor] }, index: [0]
     )
-    # pipeline_input_data = [[balcony],[bedroom],[city],[total_floor]]
-    # print "=>==> df - #{df}\n"
-    print "=>==> prepared input pipeline- #{pipeline_input_data}\n#{pipeline_input_data.shape}\n"
-    # print "=>==> prepared input pipeline- #{prepared}\n #{prepared.shape}\n"
-    prepared = @pipeline.transform(pipeline_input_data[0])
+    print "=>==> pipeline_input_data - #{pipeline_input_data}\nshape - #{pipeline_input_data.shape}\n"
+    reshaped_data = pipeline_input_data.map_rows { |row| row.to_a }
+    print "=>==> pipeline - #{@pipeline}\n"
+    print "=>==> reshaped_data - #{reshaped_data}\n"
+    prepared = @pipeline.transform(reshaped_data)
     print "=>==> prepared input pipeline- #{prepared}\n #{prepared.shape}\n"
     predicted = @estimator.predict(prepared)
     print "=>==> predicted - #{predicted}\n"
     # @all_periods.each_with_index
     #             .each_with_object({}) { |(period, idx), result| result[period] = predicted[idx] }
-    return predicted
+    return predicted[0]
   end
 
   def initialize_pipeline
